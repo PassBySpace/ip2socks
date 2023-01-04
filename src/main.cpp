@@ -373,6 +373,7 @@ void down_shell() {
  * setup shell scripts
  */
 void on_shell() {
+    // todo: this has a problem to init
     if (conf->after_start_shell != NULL) {
         std::string sh("sh ");
         sh.append(conf->after_start_shell);
