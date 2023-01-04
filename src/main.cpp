@@ -342,7 +342,7 @@ main(int argc, char **argv) {
     /**
      * setup shell scripts
      */
-    on_shell();
+//    on_shell();
 
     std::cout << "Ip2socks started!" << std::endl;
     return ev_run(loop, 0);
@@ -393,14 +393,14 @@ void on_shell() {
 
 void sigterm_cb(struct ev_loop *loop, ev_signal *watcher, int revents) {
     printf("SIGTERM handler called in process!!!\n");
-    down_shell();
+//    down_shell();
     ev_break(loop, EVBREAK_ALL);
     exit(0); // kill all threads
 }
 
 void sigint_cb(struct ev_loop *loop, ev_signal *watcher, int revents) {
     printf("SIGINT handler called in process!!!\n");
-    down_shell();
+//    down_shell();
     ev_break(loop, EVBREAK_ALL);
     exit(0); // kill all threads
 }

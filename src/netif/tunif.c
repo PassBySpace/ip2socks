@@ -7,6 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/socket.h>
+#include <sys/uio.h>
 
 #include "lwip/ip.h"
 
@@ -97,7 +98,7 @@ static int utun_write(int fd, void *buf, size_t len) {
   iv[1].iov_base = buf;
   iv[1].iov_len = len;
 
-  return utun_modified_len(write(fd, iv, 2));
+  return utun_modified_len(writev(fd, iv, 2));
 }
 
 static int utun_read(int fd, void *buf, size_t len) {
@@ -109,7 +110,7 @@ static int utun_read(int fd, void *buf, size_t len) {
   iv[1].iov_base = buf;
   iv[1].iov_len = len;
 
-  return utun_modified_len(read(fd, iv, 2));
+  return utun_modified_len(readv(fd, iv, 2));
 }
 
 #endif /* LWIP_UNIX_MACH */
