@@ -38,11 +38,22 @@ curl http://www.example.com
 
 # work debug
 
-sudo route add 10.0.0.2 -interface utun4
-
 # start flow
 # 1. start simple web server (use node-express or rust-warp)
 # 2. start golang socks5 server
 # 3. start ip2socks, mac utun -> socks
-# 4. add route table 10.0.0.2 -> utun4
+# 4. add route table 10.0.0.2 -> utun4: sudo route add 10.0.0.2 -interface utun4
 # 5. test use curl 10.0.0.2
+
+# lwip debug
+
+sudo route add 192.168.1.200 -interface utun4
+
+sudo route add 10.0.0.2 -netmask 255.255.255.0 -interface utun4
+
+nc 192.168.1.200
+
+sudo route add 10.0.0.2 -interface utun4
+sudo route delete 10.0.0.2
+
+sudo route add 10.0.0.2 -interface utun3
