@@ -41,7 +41,7 @@ curl http://www.example.com
 sudo route add 10.0.0.2 -interface utun4
 
 # start flow
-# 1. start simple web server
+# 1. start simple web server (use node-express or rust-warp)
 # 2. start golang socks5 server
 # 3. start ip2socks, mac utun -> socks
 # 4. add route table 10.0.0.2 -> utun4
