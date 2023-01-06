@@ -49,7 +49,7 @@ curl http://www.example.com
 
 sudo route add 192.168.1.200 -interface utun4
 
-sudo route add 10.0.0.2 -netmask 255.255.255.0 -interface utun4
+sudo route add 10.0.0.2 -netmask 255.255.255.0 -interface utun6
 
 nc 192.168.1.200
 
@@ -57,3 +57,8 @@ sudo route add 10.0.0.2 -interface utun4
 sudo route delete 10.0.0.2
 
 sudo route add 10.0.0.2 -interface utun3
+sudo route add 10.0.0.3 -interface utun6
+sudo route add 10.0.0.2 -interface utun6
+
+
+brew install --cask packetsender
